@@ -3,13 +3,9 @@
 
 import { create } from "zustand";
 
-const overworldX = localStorage.getItem("overworldX");
-const overworldY = localStorage.getItem("overworldY");
-const overworldZ = localStorage.getItem("overworldZ");
-
-if (!overworldX) localStorage.setItem("overworldX", "0");
-if (!overworldY) localStorage.setItem("overworldY", "0");
-if (!overworldZ) localStorage.setItem("overworldZ", "0");
+const overworldX = localStorage.getItem("overworldX") ?? 0;
+const overworldY = localStorage.getItem("overworldY") ?? 0;
+const overworldZ = localStorage.getItem("overworldZ") ?? 0;
 
 const useOverworldX = create((set) => ({
   X: Number(overworldX),

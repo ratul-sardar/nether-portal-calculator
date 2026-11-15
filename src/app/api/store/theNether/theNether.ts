@@ -2,13 +2,9 @@
 
 import { create } from "zustand";
 
-const netherX = localStorage.getItem("netherX");
-const netherY = localStorage.getItem("netherY");
-const netherZ = localStorage.getItem("netherZ");
-
-if (!netherX) localStorage.setItem("netherX", "0");
-if (!netherY) localStorage.setItem("netherY", "0");
-if (!netherZ) localStorage.setItem("netherZ", "0");
+const netherX = localStorage.getItem("netherX") ?? 0;
+const netherY = localStorage.getItem("netherY") ?? 0;
+const netherZ = localStorage.getItem("netherZ") ?? 0;
 
 const useNetherX = create((set) => ({
   X: netherX,
