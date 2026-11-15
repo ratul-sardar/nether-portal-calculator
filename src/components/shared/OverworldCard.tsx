@@ -1,5 +1,4 @@
 "use client";
-import { motion } from "motion/react";
 import Image from "next/image";
 import type { ChangeEvent } from "react";
 import {
@@ -105,7 +104,7 @@ export default function OverworldCard() {
             <input
               type="number"
               onChange={(e) => handleOverworlZ(e)}
-              defaultValue={OverworldY}
+              defaultValue={OverworlZ}
               className="w-full h-7 p-2 border border-green-400/30"
             />
           </div>
