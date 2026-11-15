@@ -21,6 +21,15 @@ import {
   CardHeader,
   CardTitle,
 } from "@/components/ui/card";
+import {
+  CodeBlock,
+  CodeBlockActions,
+  CodeBlockContent,
+  CodeBlockCopyButton,
+  CodeBlockHeader,
+  CodeBlockTitle,
+} from "@/components/ui/code-block";
+import { copyText } from "@/lib/copytoClipboard";
 import Reveal from "../animations/Reveal";
 import { Button } from "../ui/button";
 
@@ -55,8 +64,11 @@ export default function NetherCard() {
     setOverworldZ(value * 8);
   }
 
+  const teleportCommand = `/execute in minecraft:the_nether run tp @s ${NetherX} ${NetherY} ${NetherZ}`;
+  const copyXYZ = `${NetherX} ${NetherY} ${NetherZ}`;
+
   return (
-    <Reveal delay={0.5}>
+    <Reveal delay={0.5} className="min-w-0 flex-1">
       <Card className={`w-full border border-purple-500/90`}>
         <CardHeader>
           <CardTitle>
@@ -71,7 +83,9 @@ export default function NetherCard() {
             </div>
           </CardTitle>
           <CardAction>
-            <Button>Copy x,y,z</Button>
+            <Button onClick={async () => await copyText(copyXYZ)}>
+              Copy x,y,z
+            </Button>
           </CardAction>
         </CardHeader>
 
@@ -110,8 +124,22 @@ export default function NetherCard() {
           </div>
         </CardContent>
 
-        <CardFooter>
-          <p>Card Footer</p>
+        <CardFooter className="min-w-0">
+          <CodeBlock className="w-full min-w-0 overflow-hidden">
+            <CodeBlockHeader>
+              <CodeBlockTitle>Teleport Command</CodeBlockTitle>
+              <CodeBlockActions>
+                <CodeBlockCopyButton value={teleportCommand} />
+              </CodeBlockActions>
+            </CodeBlockHeader>
+
+            <CodeBlockContent
+              wrap
+              className="min-w-0 [&_pre]:overflow-hidden [&_code]:block [&_code]:truncate"
+            >
+              {teleportCommand}
+            </CodeBlockContent>
+          </CodeBlock>
         </CardFooter>
       </Card>
     </Reveal>

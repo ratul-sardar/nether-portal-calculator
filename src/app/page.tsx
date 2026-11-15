@@ -8,7 +8,7 @@ export default function Home() {
       <Banner />
 
       {/*Contents Section*/}
-      <section className="w-11/12 max-w-205 flex items-center justify-center gap-8 py-16">
+      <section className="w-11/12 mx-auto max-w-205 flex items-center justify-center gap-8 py-16">
         <OverworldCard></OverworldCard>
         <NetherCard></NetherCard>
       </section>
