@@ -1,18 +1,37 @@
+// Beacuse we are using Local storage this function can only be called from the client. calling from the server will throw error
+
 import { create } from "zustand";
 
+const netherX = localStorage.getItem("netherX");
+const netherY = localStorage.getItem("netherY");
+const netherZ = localStorage.getItem("netherZ");
+
+if (!netherX) localStorage.setItem("netherX", "0");
+if (!netherY) localStorage.setItem("netherY", "0");
+if (!netherZ) localStorage.setItem("netherZ", "0");
+
 const useNetherX = create((set) => ({
-  X: 0,
-  handleX: (newValue: number) => set({ X: newValue }),
+  X: netherX,
+  handleX: (newValue: number) => {
+    set({ X: newValue });
+    localStorage.setItem("netherX", newValue.toString());
+  },
 }));
 
 const useNetherY = create((set) => ({
-  Y: 0,
-  handleY: (newValue: number) => set({ Y: newValue }),
+  Y: netherY,
+  handleY: (newValue: number) => {
+    set({ Y: newValue });
+    localStorage.setItem("netherY", newValue.toString());
+  },
 }));
 
 const useNetherZ = create((set) => ({
-  Z: 0,
-  handleZ: (newValue: number) => set({ Z: newValue }),
+  Z: netherZ,
+  handleZ: (newValue: number) => {
+    set({ Z: newValue });
+    localStorage.setItem("netherZ", newValue.toString());
+  },
 }));
 
 export { useNetherX, useNetherY, useNetherZ };
