@@ -31,8 +31,9 @@ export default function OverworldCard() {
   function handleOverworldX(
     e: ChangeEvent<HTMLInputElement, HTMLInputElement>,
   ) {
-    setOverworldX(e.currentTarget.value);
-    setNetherX(OverworldX / 8);
+    const value = Number(e.currentTarget.value);
+    setOverworldX(value);
+    setNetherX(value / 8);
   }
 
   // Y
@@ -42,17 +43,19 @@ export default function OverworldCard() {
   function handleOverworldY(
     e: ChangeEvent<HTMLInputElement, HTMLInputElement>,
   ) {
-    setOverworldY(e.currentTarget.value);
-    setNetherY(OverworldY / 8);
+    const value = Number(e.currentTarget.value);
+    setOverworldY(value);
+    setNetherY(value / 8);
   }
 
   // Z
-  const OverworlZ = useOverworldZ((state: any) => state.Y);
-  const setOverworlZ = useOverworldZ((state: any) => state.handleY);
-  const setNetheZ = useNetherZ((state: any) => state.handleY);
+  const OverworlZ = useOverworldZ((state: any) => state.Z);
+  const setOverworlZ = useOverworldZ((state: any) => state.handleZ);
+  const setNetheZ = useNetherZ((state: any) => state.handleZ);
   function handleOverworlZ(e: ChangeEvent<HTMLInputElement, HTMLInputElement>) {
-    setOverworlZ(e.currentTarget.value);
-    setNetheZ(OverworlZ / 8);
+    const value = Number(e.currentTarget.value);
+    setOverworlZ(value);
+    setNetheZ(value / 8);
   }
 
   return (
@@ -82,7 +85,7 @@ export default function OverworldCard() {
             <input
               type="number"
               onChange={(e) => handleOverworldX(e)}
-              defaultValue={OverworldX}
+              value={OverworldX}
               className="w-full h-7 p-2 border border-green-400/30"
             />
           </div>
@@ -93,7 +96,7 @@ export default function OverworldCard() {
             <input
               type="number"
               onChange={(e) => handleOverworldY(e)}
-              defaultValue={OverworldY}
+              value={OverworldY}
               className="w-full h-7 p-2 border border-green-400/30"
             />
           </div>
@@ -104,7 +107,7 @@ export default function OverworldCard() {
             <input
               type="number"
               onChange={(e) => handleOverworlZ(e)}
-              defaultValue={OverworlZ}
+              value={OverworlZ}
               className="w-full h-7 p-2 border border-green-400/30"
             />
           </div>

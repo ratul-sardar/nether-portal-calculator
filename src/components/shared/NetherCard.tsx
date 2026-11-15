@@ -30,26 +30,29 @@ export default function NetherCard() {
   const setNetherX = useNetherX((state: any) => state.handleX);
   const setOverworldX = useOverworldX((state: any) => state.handleX);
   function handleNetherX(e: ChangeEvent<HTMLInputElement, HTMLInputElement>) {
-    setNetherX(e.currentTarget.value);
-    setOverworldX(NetherX * 8);
+    const value = Number(e.currentTarget.value);
+    setNetherX(value);
+    setOverworldX(value * 8);
   }
 
   // Y
-  const NetherY = useNetherY((state: any) => state.X);
-  const setNetherY = useNetherY((state: any) => state.handleX);
-  const setOverworldY = useOverworldY((state: any) => state.handleX);
+  const NetherY = useNetherY((state: any) => state.Y);
+  const setNetherY = useNetherY((state: any) => state.handleY);
+  const setOverworldY = useOverworldY((state: any) => state.handleY);
   function handleNetherY(e: ChangeEvent<HTMLInputElement, HTMLInputElement>) {
-    setNetherY(e.currentTarget.value);
-    setOverworldY(NetherY * 8);
+    const value = Number(e.currentTarget.value);
+    setNetherY(value);
+    setOverworldY(value * 8);
   }
 
   // Z
-  const NetherZ = useNetherZ((state: any) => state.X);
-  const setNetherZ = useNetherZ((state: any) => state.handleX);
-  const setOverworldZ = useOverworldZ((state: any) => state.handleX);
+  const NetherZ = useNetherZ((state: any) => state.Z);
+  const setNetherZ = useNetherZ((state: any) => state.handleZ);
+  const setOverworldZ = useOverworldZ((state: any) => state.handleZ);
   function handleNetherZ(e: ChangeEvent<HTMLInputElement, HTMLInputElement>) {
-    setNetherZ(e.currentTarget.value);
-    setOverworldZ(NetherZ * 8);
+    const value = Number(e.currentTarget.value);
+    setNetherZ(value);
+    setOverworldZ(value * 8);
   }
 
   return (
@@ -79,7 +82,7 @@ export default function NetherCard() {
             <input
               type="number"
               onChange={(e) => handleNetherX(e)}
-              defaultValue={NetherX}
+              value={NetherX}
               className="w-full h-7 p-2 border border-purple-400/50"
             />
           </div>
@@ -90,7 +93,7 @@ export default function NetherCard() {
             <input
               type="number"
               onChange={(e) => handleNetherY(e)}
-              defaultValue={NetherY}
+              value={NetherY}
               className="w-full h-7 p-2 border border-purple-400/50"
             />
           </div>
@@ -101,7 +104,7 @@ export default function NetherCard() {
             <input
               type="number"
               onChange={(e) => handleNetherZ(e)}
-              defaultValue={NetherZ}
+              value={NetherZ}
               className="w-full h-7 p-2 border border-purple-400/50"
             />
           </div>
